@@ -285,7 +285,7 @@ export const EStation1_Poblacion: React.FC = () => {
             </>
           ) : (
             /* ── COMPARATIVE TAB ──────────────────────────────── */
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', flex: 1, minHeight: 0 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', flex: 1, minHeight: 0, overflowY: 'auto', paddingRight: '4px' }}>
               <h4 style={{ margin: 0, flexShrink: 0 }}>¿Por qué inyectar Heurística en la Población Inicial?</h4>
               <p style={{ fontSize: '0.83rem', color: 'var(--color-text-secondary)', lineHeight: '1.55', flexShrink: 0 }}>
                 El 80 % de nuestra población se baraja al azar para explorar rutas inesperadas. Sin embargo, si toda la población fuera 100 % aleatoria, el algoritmo tardaría mucho en encontrar orden. Por eso, el 20 % se genera con heurísticas como Vecino Más Cercano.

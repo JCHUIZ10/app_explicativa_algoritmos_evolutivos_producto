@@ -20,24 +20,18 @@ export const AnalogyCard: React.FC<AnalogyCardProps> = ({
     <div style={{
       perspective: '1000px',
       width: '100%',
-      minHeight: '200px',
-      position: 'relative'
     }}>
       <div style={{
         width: '100%',
-        height: '100%',
-        position: 'relative',
+        display: 'grid',
         transformStyle: 'preserve-3d',
         transition: 'transform var(--transition-slow)',
         transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
       }}>
         {/* Front side (Analogy) */}
         <div className="glass-panel" style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
+          gridArea: '1 / 1 / 2 / 2',
           width: '100%',
-          height: '100%',
           backfaceVisibility: 'hidden',
           display: 'flex',
           flexDirection: 'column',
@@ -63,8 +57,8 @@ export const AnalogyCard: React.FC<AnalogyCardProps> = ({
                 Ver Detalle Técnico <BookOpen size={12} />
               </button>
             </div>
-            <h3 style={{ marginBottom: '10px', fontSize: '1.25rem' }}>{titulo}</h3>
-            <p style={{ fontSize: '0.95rem', lineHeight: '1.5', color: 'var(--color-text-primary)', fontStyle: 'italic' }}>
+            <h3 style={{ marginBottom: '10px', fontSize: '1.15rem' }}>{titulo}</h3>
+            <p style={{ fontSize: '0.9rem', lineHeight: '1.5', color: 'var(--color-text-primary)', fontStyle: 'italic' }}>
               "{analogia}"
             </p>
           </div>
@@ -76,7 +70,7 @@ export const AnalogyCard: React.FC<AnalogyCardProps> = ({
               background: 'rgba(255, 255, 255, 0.02)',
               borderRadius: 'var(--radius-sm)',
               border: '1px dashed var(--color-border)',
-              fontSize: '0.8rem',
+              fontSize: '0.78rem',
               color: 'var(--color-text-secondary)'
             }}>
               🎨 <strong>Metáfora Visual:</strong> {metaforaVisual}
@@ -86,11 +80,8 @@ export const AnalogyCard: React.FC<AnalogyCardProps> = ({
 
         {/* Back side (Technical Explanation) */}
         <div className="glass-panel" style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
+          gridArea: '1 / 1 / 2 / 2',
           width: '100%',
-          height: '100%',
           backfaceVisibility: 'hidden',
           transform: 'rotateY(180deg)',
           display: 'flex',
@@ -117,8 +108,8 @@ export const AnalogyCard: React.FC<AnalogyCardProps> = ({
                 Volver a Analogía <RefreshCw size={12} />
               </button>
             </div>
-            <h3 style={{ marginBottom: '10px', fontSize: '1.25rem' }}>Explicación Algorítmica</h3>
-            <p style={{ fontSize: '0.9rem', lineHeight: '1.5', color: 'var(--color-text-secondary)', fontFamily: 'var(--font-sans)' }}>
+            <h3 style={{ marginBottom: '10px', fontSize: '1.15rem' }}>Explicación Algorítmica</h3>
+            <p style={{ fontSize: '0.85rem', lineHeight: '1.5', color: 'var(--color-text-secondary)', fontFamily: 'var(--font-sans)' }}>
               {explicacionTecnica}
             </p>
           </div>

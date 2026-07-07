@@ -1,7 +1,7 @@
 import React from 'react';
 import { XPProgressBar } from './XPProgressBar';
 import { PlaybackControls } from './PlaybackControls';
-import { Network, HelpCircle, Settings } from 'lucide-react';
+import { Network, House , Settings } from 'lucide-react';
 import { useAlgorithmStore } from '../store/useAlgorithmStore';
 
 interface GlobalLayoutProps {
@@ -116,10 +116,7 @@ export const GlobalLayout: React.FC<GlobalLayoutProps> = ({ children }) => {
         {/* Action icons */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
           <button className="btn btn-ghost btn-icon" title="Ir al inicio" onClick={() => setCurrentStation(0)}>
-            <Settings size={17} />
-          </button>
-          <button className="btn btn-ghost btn-icon" title="Ayuda y Conceptos">
-            <HelpCircle size={17} />
+            <House size={17} />
           </button>
         </div>
       </header>
