@@ -4,13 +4,12 @@ import { Award, CheckCircle } from 'lucide-react';
 
 export const XPProgressBar: React.FC = () => {
   const currentStation = useAlgorithmStore((state) => state.currentStation);
-  const generaciones = useAlgorithmStore((state) => state.generaciones);
   
-  const stationsCount = 8; // 0 to 7
+  const stationsCount = 5; // 0 to 4
   const progressPercentage = (currentStation / (stationsCount - 1)) * 100;
   
   // Custom gamified XP calculation
-  const totalXP = currentStation * 100 + (generaciones.length > 0 ? 150 : 0);
+  const totalXP = currentStation * 150;
 
   return (
     <div className="glass-panel" style={{ padding: '12px 20px', display: 'flex', alignItems: 'center', gap: '20px', width: '100%' }}>

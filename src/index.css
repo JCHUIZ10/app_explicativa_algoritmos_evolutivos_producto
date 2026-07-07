@@ -64,8 +64,9 @@
   --shadow-glow: 0 0 30px hsla(258, 90%, 66%, 0.15);
 
   /* Layout */
-  --header-height: 72px;
-  --playback-height: 80px;
+  --header-height: 64px;
+  --playback-height: 72px;
+  --sidebar-width: 340px;
 
   /* Smooth Transitions */
   --transition-fast: 0.15s ease;
@@ -91,17 +92,17 @@ html, body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow: hidden; /* App runs in a fixed viewport-like layout */
+  overflow: hidden;
 }
 
 /* Scrollbar Customization */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-bg);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -133,6 +134,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 { font-size: 2.25rem; }
 h2 { font-size: 1.75rem; }
 h3 { font-size: 1.35rem; }
+h4 { font-size: 1.05rem; }
 p { color: var(--color-text-secondary); }
 
 a {
@@ -167,9 +169,9 @@ a:hover {
   justify-content: center;
   gap: 8px;
   font-family: var(--font-sans);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 600;
-  padding: 10px 20px;
+  padding: 8px 16px;
   border-radius: var(--radius-md);
   border: 1px solid transparent;
   cursor: pointer;
@@ -211,8 +213,8 @@ a:hover {
 }
 
 .btn-icon {
-  width: 42px;
-  height: 42px;
+  width: 38px;
+  height: 38px;
   padding: 0;
   border-radius: var(--radius-full);
 }
@@ -242,9 +244,9 @@ a:hover {
 /* Chrome/Gen Badges */
 .badge {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  padding: 4px 8px;
+  padding: 3px 7px;
   border-radius: var(--radius-sm);
   text-transform: uppercase;
 }
@@ -262,4 +264,126 @@ a:hover {
 
 .pulse-glow {
   animation: pulseGlow 3s infinite ease-in-out;
+}
+
+/* =======================================================
+   RESPONSIVE STATION LAYOUT
+   Two‑column on ≥1100 px, single‑column below
+   ======================================================= */
+.station-grid {
+  display: grid;
+  grid-template-columns: 1fr var(--sidebar-width);
+  gap: 20px;
+  height: 100%;
+  min-height: 0; /* allow flex children to shrink */
+}
+
+/* Main content pane (left column) */
+.station-main {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* Sidebar pane (right column) */
+.station-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+@media (max-width: 1100px) {
+  .station-grid {
+    grid-template-columns: 1fr;
+    height: auto;
+    overflow-y: visible;
+  }
+
+  .station-sidebar {
+    overflow-y: visible;
+  }
+}
+
+/* =======================================================
+   MAP CONTAINER — fills its parent perfectly
+   ======================================================= */
+.map-container {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.map-container svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* =======================================================
+   HIGH-CONTRAST SVG TEXT
+   paint-order puts the stroke behind the fill so text
+   is legible over any background.
+   ======================================================= */
+svg text.node-label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  dominant-baseline: auto;
+  paint-order: stroke fill;
+  stroke: hsl(225, 15%, 8%);
+  stroke-width: 3.5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+
+/* =======================================================
+   MAP NODES — interactive circles
+   ======================================================= */
+.map-node {
+  cursor: default;
+  transition: r 0.2s ease, opacity 0.2s ease;
+}
+
+.map-node-interactive {
+  cursor: pointer;
+}
+
+.map-node-interactive:hover {
+  opacity: 0.85;
+}
+
+/* Map legend strip */
+.map-legend {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  padding: 5px 10px;
+  border-radius: 6px;
+  display: flex;
+  gap: 12px;
+  font-size: 0.65rem;
+  color: var(--color-text-secondary);
+}
+
+.map-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.map-legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
 }
