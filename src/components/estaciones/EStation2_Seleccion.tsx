@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAlgorithmStore } from '../../store/useAlgorithmStore';
 import { Swords, Trophy, Sparkles, RefreshCw } from 'lucide-react';
-import { AnalogyCard } from '../AnalogyCard';
+import { TechnicalExplanation } from '../TechnicalExplanationCard';
 
 export const EStation2_Seleccion: React.FC = () => {
   const {
@@ -154,11 +154,8 @@ export const EStation2_Seleccion: React.FC = () => {
       </div>
 
       <div className="station-sidebar">
-        <AnalogyCard
-          titulo="Estación 2 — Selección por Torneo"
-          analogia="De los 120 mazos de cartas, sacamos 3 al azar a un ring de combate. Los comparamos frente a frente: el que tenga la mejor calificación de reparto ¡gana el torneo y pasa a la siguiente ronda! Los perdedores se descartan. Repetimos esto hasta tener suficientes 'padres' para crear la nueva generación."
+        <TechnicalExplanation
           explicacionTecnica="El método de selección por torneo (k=3) elige aleatoriamente k individuos y selecciona al mejor. Esto asegura que el algoritmo prefiera reproducir buenas soluciones (presión de selección), pero da una probabilidad matemática a que soluciones no óptimas aporten genes raros a la piscina evolutiva, conservando la diversidad genética."
-          metaforaVisual="Tres cartas de soluciones en el ring; el ganador se agranda con glow; los otros se desvanecen."
         />
 
         {tournamentWinnerId !== null && (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAlgorithmStore } from '../../store/useAlgorithmStore';
 import { HelpCircle, ArrowRight, RotateCcw, ArrowDown } from 'lucide-react';
-import { AnalogyCard } from '../AnalogyCard';
+import { TechnicalExplanation } from '../TechnicalExplanationCard';
 
 export const EStation3_Cruce: React.FC = () => {
   const {
@@ -21,8 +21,8 @@ export const EStation3_Cruce: React.FC = () => {
       case 0: return 'Paso 1: Analizar los Padres';
       case 1: return 'Paso 2: Donación de Ruta de Padre 1';
       case 2: return 'Paso 3: Limpieza de Padre 2';
-      case 3: return 'Paso 4: Reinserción de CLI-01';
-      case 4: return 'Paso 5: Reinserción de CLI-05 e Hijo Resultante';
+      case 3: return 'Paso 4: Reinserción de GEN-01';
+      case 4: return 'Paso 5: Reinserción de GEN-05 e Hijo Resultante';
       default: return '';
     }
   };
@@ -203,7 +203,7 @@ export const EStation3_Cruce: React.FC = () => {
                   })}
                 </div>
                 <div style={{ fontSize: '0.75rem', marginTop: '6px', color: 'var(--color-success)' }}>
-                  ✅ ¡Cruce BCRC completado! El hijo hereda el agrupamiento espacial exitoso [1 ➔ 5] del Padre 1.
+                  ¡Cruce BCRC completado! El hijo hereda el agrupamiento espacial exitoso [1 ➔ 5] del Padre 1.
                 </div>
               </div>
             </>
@@ -212,12 +212,9 @@ export const EStation3_Cruce: React.FC = () => {
       </div>
 
       <div className="station-sidebar">
-        <AnalogyCard
-          titulo="Estación 3 — Cruce BCRC (Crossover)"
-          analogia="El Padre 1 tiene una ruta brillante para el sur de la ciudad (clientes 1 y 5). Le 'donamos' esa ruta al Padre 2. Pero el Padre 2 ya tenía asignados a esos clientes en otros camiones, así que los sacamos para evitar duplicados y los re-insertamos uno por uno en la mejor ranura que menos 'cueste' (menor aumento de distancia y capacidad)."
+        <TechnicalExplanation
           explicacionTecnica="El cruce de rutas de mejor costo (Best Cost Route Crossover - BCRC) es óptimo para VRP. A diferencia del cruce por puntos estándar (que rompe las secuencias lógicas y genera soluciones inválidas con clientes duplicados u omitidos), BCRC trasplanta rutas completas coherentes y reinserta de forma inteligente basándose en el costo de delta-distancia."
-          metaforaVisual="Muestra de Padre 1 y Padre 2. Al pulsar el botón, las cajas verdes se copian y viajan a la fila inferior colocándose de forma óptima."
-        />
+         />
 
         {/* Active Crossover Logs */}
         <div className="glass-panel" style={{ padding: '20px', flex: 1, display: 'flex', flexDirection: 'column', gap: '8px' }}>

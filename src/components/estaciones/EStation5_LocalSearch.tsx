@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAlgorithmStore } from '../../store/useAlgorithmStore';
 import { RotateCcw, Zap, Compass, CheckCircle } from 'lucide-react';
-import { AnalogyCard } from '../AnalogyCard';
+import { TechnicalExplanation } from '../TechnicalExplanationCard';
 
 // ─── coordinate mapping — same grid as EStation1 ─────────────────────────────
 const VB_W = 500;
@@ -244,11 +244,8 @@ export const EStation5_LocalSearch: React.FC = () => {
 
       {/* ═══ RIGHT: Sidebar ═════════════════════════════════════════════════ */}
       <div className="station-sidebar">
-        <AnalogyCard
-          titulo="Estación 5 — Búsqueda Local 2-opt"
-          analogia="Después de nacer, el 'hijo' va al gimnasio. Un entrenador experto (2-opt) mira su ruta y dice: '¡Oye, estás haciendo un zigzag innecesario!' Entonces invierte ese tramo para eliminar el cruce y la ruta queda perfectamente desanudada."
+        <TechnicalExplanation
           explicacionTecnica="El algoritmo 2-opt revisa todas las aristas de una ruta y las invierte. Si la distancia resultante es menor que la anterior, guarda el cambio. Esto elimina cruces físicos e ineficiencias que los operadores genéticos globales pueden pasar por alto."
-          metaforaVisual="Líneas cruzadas que al dar clic se abren y alinean de forma paralela."
         />
 
         <div className="glass-panel" style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>

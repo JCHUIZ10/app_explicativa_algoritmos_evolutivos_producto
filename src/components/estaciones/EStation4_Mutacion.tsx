@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAlgorithmStore } from '../../store/useAlgorithmStore';
 import { Sparkles, RotateCcw, AlertTriangle, ArrowRightLeft, Move } from 'lucide-react';
-import { AnalogyCard } from '../AnalogyCard';
+import { TechnicalExplanation } from '../TechnicalExplanationCard';
 
 export const EStation4_Mutacion: React.FC = () => {
   const {
@@ -196,11 +196,8 @@ export const EStation4_Mutacion: React.FC = () => {
       </div>
 
       <div className="station-sidebar">
-        <AnalogyCard
-          titulo="Estación 4 — Mutación Híbrida"
-          analogia="Swap: Un repartidor cambia de lugar dos tarjetas de entrega por accidente. Or-opt: Alguien decide mover un bloque de 2 a 3 entregas contiguas de un camión a otro más vacío. A veces este ruido azaroso arruina la ruta, pero en ocasiones descubre una forma mucho más barata de entregar."
+        <TechnicalExplanation
           explicacionTecnica="La mutación híbrida es la clave para la exploración. En Swap, se intercambian dos genes al azar, lo cual puede cambiar la asignación o el orden de visita. En Or-opt, se reubica un segmento contiguo. Esto rompe la homogeneidad de la población y ayuda a 'saltar' de óptimos locales estancados."
-          metaforaVisual="Cromosomas clickeables en el centro. Al clicar, se intercambian físicamente en la pantalla."
         />
 
         {/* Live Distance impact details */}

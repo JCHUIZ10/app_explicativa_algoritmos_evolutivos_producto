@@ -1,7 +1,7 @@
 import React from 'react';
 import { XPProgressBar } from './XPProgressBar';
 import { PlaybackControls } from './PlaybackControls';
-import { Network, House , Settings } from 'lucide-react';
+import { Network, House } from 'lucide-react';
 import { useAlgorithmStore } from '../store/useAlgorithmStore';
 
 interface GlobalLayoutProps {

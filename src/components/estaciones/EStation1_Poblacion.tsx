@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAlgorithmStore } from '../../store/useAlgorithmStore';
 import { RotateCcw, ArrowRight, Network, CheckCircle } from 'lucide-react';
-import { AnalogyCard } from '../AnalogyCard';
+import { TechnicalExplanation } from '../TechnicalExplanationCard';
 
 // ─── coordinate helpers ───────────────────────────────────────────────────────
 // SVG canvas: 500 × 420 units — plenty of room for 8 clients + depot
@@ -349,11 +349,8 @@ export const EStation1_Poblacion: React.FC = () => {
 
       {/* ═══ RIGHT: Sidebar ══════════════════════════════════════════════════ */}
       <div className="station-sidebar">
-        <AnalogyCard
-          titulo="Estación 1 — Población Inicial"
-          analogia="Imagina armar 120 listas de reparto para el mismo set de clientes. El 20 % lo arma tu repartidor más experimentado siguiendo la ruta más inteligente (Heurístico). El 80 % restante es como barajar y repartir las cartas: rutas completamente aleatorias."
+        <TechnicalExplanation
           explicacionTecnica="La inicialización híbrida mezcla el 80 % de aleatoriedad (para explorar sin sesgos) con un 20 % heurístico (para guiar al algoritmo desde el inicio). En el laboratorio interactivo del Vecino Más Cercano puedes construir paso a paso la ruta seleccionando sucesivamente al cliente más cercano no visitado, respetando la capacidad máxima del camión."
-          metaforaVisual="Constructor interactivo izquierda · Comparativa heurístico vs caótico derecha."
         />
 
         <div className="glass-panel" style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
